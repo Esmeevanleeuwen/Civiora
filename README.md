@@ -1,24 +1,30 @@
 # Civiora
 
-Een responsieve landingspagina voor Civiora: een publiek socialmedia-experiment waarin gesprekken beginnen met een vraag in plaats van een vast antwoord.
+Een donkere, responsieve Next.js-landingspagina voor Civiora: een publiek socialmedia-experiment waarin vragen, ideeën en filosofie het begin van het gesprek vormen.
 
-## Lokaal bekijken
+## Ontwerp
 
-De pagina gebruikt alleen HTML, CSS en JavaScript en heeft geen buildstap nodig.
+De aangeleverde header blijft het uitgangspunt:
+
+- zwarte navigatie met `CIVIORA.`;
+- de volledige Socrates-afbeelding uit `public/civiora-hero.webp`;
+- de oorspronkelijke hoofdvraag en introductietekst;
+- de navigatielabels `Het uitgangspunt`, `De richting` en `Denk mee`.
+
+Daaronder maakt de pagina het concept voelbaar met vijf uitgangspunten, een interactieve dialoog-preview, een korte filosofische tussenruimte en een duidelijke uitnodiging om de ontwikkeling te volgen.
+
+## Lokaal starten
 
 ```bash
-python -m http.server 3000
+npm install
+npm run dev
 ```
 
 Open daarna `http://localhost:3000`.
 
-## Structuur
+## Belangrijkste bestanden
 
-- `index.html` — inhoud en semantische structuur
-- `styles.css` — volledige responsive vormgeving
-- `script.js` — mobiel menu, animaties en interactieve gesprekstabs
-- `assets/civiora-hero.png` — beeld voor de oorspronkelijke Civiora-header
-
-## Ontwerpprincipes
-
-De landingspagina houdt de oorspronkelijke donkere header en Socrates-compositie intact. De rest van de pagina blijft bewust compact: eerst nieuwsgierigheid, daarna een korte indruk van de werking en uiteindelijk één duidelijke uitnodiging om mee te denken.
+- `src/app/page.tsx` — inhoud, componenten en tab-interactie;
+- `src/app/globals.css` — volledige styling en responsive gedrag;
+- `src/app/layout.tsx` — documentstructuur en metadata;
+- `public/civiora-hero.webp` — de visueel ongewijzigde, geoptimaliseerde hero-afbeelding.
