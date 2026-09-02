@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     description:
       "Een nieuwe publieke ruimte voor vragen, ideeën, filosofie en debat.",
     type: "website",
-    images: [{ url: "/civiora-hero.webp", width: 1932, height: 1120 }],
+    images: [{ url: "/civiora-hero.avif", width: 720, height: 417 }],
   },
 };
 
