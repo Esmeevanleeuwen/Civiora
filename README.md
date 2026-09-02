@@ -7,7 +7,7 @@ Een donkere, responsieve Next.js-landingspagina voor Civiora: een publiek social
 De aangeleverde header blijft het uitgangspunt:
 
 - zwarte navigatie met `CIVIORA.`;
-- de volledige Socrates-afbeelding uit `public/civiora-hero.webp`;
+- de volledige Socrates-afbeelding uit `public/civiora-hero.avif`;
 - de oorspronkelijke hoofdvraag en introductietekst;
 - de navigatielabels `Het uitgangspunt`, `De richting` en `Denk mee`.
 
@@ -27,4 +27,4 @@ Open daarna `http://localhost:3000`.
 - `src/app/page.tsx` — inhoud, componenten en tab-interactie;
 - `src/app/globals.css` — volledige styling en responsive gedrag;
 - `src/app/layout.tsx` — documentstructuur en metadata;
-- `public/civiora-hero.webp` — de visueel ongewijzigde, geoptimaliseerde hero-afbeelding.
+- `public/civiora-hero.avif` — de visueel ongewijzigde, geoptimaliseerde hero-afbeelding.
