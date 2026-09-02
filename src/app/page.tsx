@@ -139,10 +139,10 @@ export default function Home() {
           <div className="hero-visual" aria-hidden="true">
             <Image
               className="hero-image"
-              src="/civiora-hero.webp"
+              src="/civiora-hero.avif"
               alt=""
-              width={1932}
-              height={1120}
+              width={720}
+              height={417}
               priority
               sizes="100vw"
             />
