@@ -1,3 +1,5 @@
+import DialogueCard from "./DialogueCard";
+
 type PrincipleIcon = "question" | "people" | "layers" | "book" | "shield";
 
 type Principle = {
@@ -117,14 +119,6 @@ function PrincipleMark({ icon }: { icon: PrincipleIcon }) {
   );
 }
 
-function Avatar({ initials, index }: { initials: string; index: number }) {
-  return (
-    <span className={`avatar avatar--${index + 1}`} aria-hidden="true">
-      {initials}
-    </span>
-  );
-}
-
 export default function Home() {
   return (
     <main>
@@ -198,49 +192,7 @@ export default function Home() {
             </a>
           </div>
 
-          <div className="dialogue-card" aria-label="Voorbeeld van een Civiora-gesprek">
-            <div className="dialogue-card__topline">
-              <span>VRAAG</span>
-              <div className="avatar-stack" aria-label="128 deelnemers">
-                <Avatar initials="M" index={0} />
-                <Avatar initials="S" index={1} />
-                <Avatar initials="A" index={2} />
-                <span className="avatar-count">+125</span>
-              </div>
-            </div>
-
-            <h3>Wat betekent vrijheid in een wereld vol ongelijkheid?</h3>
-
-            <div className="tabs" aria-hidden="true">
-              <span>Samenvatting</span>
-              <span className="tabs__active">Argumenten</span>
-              <span>Tegenvragen</span>
-              <span>Open</span>
-            </div>
-
-            <div className="arguments">
-              <div className="argument">
-                <Avatar initials="N" index={0} />
-                <p>Vrijheid zonder gelijke kansen blijft voor sommigen alleen een woord.</p>
-                <span>42 ↑</span>
-              </div>
-              <div className="argument">
-                <Avatar initials="E" index={1} />
-                <p>Maar wanneer wordt gelijkheid zelf een grens voor individuele vrijheid?</p>
-                <span>28 ↑</span>
-              </div>
-              <div className="argument">
-                <span className="question-dot">?</span>
-                <p>Welk verschil in kansen kan een samenleving nog rechtvaardigen?</p>
-                <span>15 ↑</span>
-              </div>
-            </div>
-
-            <div className="question-field">
-              <span>Voeg een tegenvraag toe</span>
-              <span aria-hidden="true">+</span>
-            </div>
-          </div>
+          <DialogueCard />
         </div>
       </section>
 
