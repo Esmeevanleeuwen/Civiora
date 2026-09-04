@@ -1,20 +1,81 @@
-/* Vergroot het Socrates-beeld zonder de volledige schildering af te snijden. */
+/* Schermvullende Socrates-hero: de afbeelding vormt de volledige eerste pagina. */
+.hero {
+  position: relative;
+  min-height: 100svh;
+  isolation: isolate;
+}
+
 .hero__art {
-  height: clamp(420px, 58vw, 840px);
-  max-height: 78svh;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  max-height: none;
+  margin: 0;
+}
+
+.hero__art-image {
+  background-size: cover;
+  background-position: center 42%;
+}
+
+.hero__art::before {
+  background:
+    linear-gradient(90deg, rgba(0, 0, 0, 0.52) 0%, transparent 16%, transparent 84%, rgba(0, 0, 0, 0.52) 100%),
+    linear-gradient(180deg, rgba(0, 0, 0, 0.18) 0%, transparent 42%, rgba(0, 0, 0, 0.1) 58%, #000 100%);
+}
+
+.hero__art::after {
+  height: 44%;
+  background: linear-gradient(180deg, transparent, #000 96%);
+}
+
+.hero__copy {
+  min-height: calc(100svh - 64px);
+  margin-top: 0;
+  padding: clamp(420px, 56svh, 650px) 0 clamp(62px, 7vw, 96px);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
 }
 
 @media (max-width: 760px) {
+  .hero {
+    min-height: 100svh;
+  }
+
   .hero__art {
-    height: clamp(330px, 84vw, 500px);
+    width: 100%;
+    height: 100%;
     max-height: none;
+    margin-left: 0;
+  }
+
+  .hero__art-image {
+    background-position: 55% center;
+  }
+
+  .hero__copy {
+    min-height: calc(100svh - 56px);
+    margin-top: 0;
+    padding: 48svh 0 64px;
   }
 }
 
 @media (max-width: 430px) {
   .hero__art {
-    height: 82vw;
-    min-height: 320px;
-    max-height: 420px;
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+    max-height: none;
+    margin-left: 0;
+  }
+
+  .hero__art-image {
+    background-position: 57% center;
+  }
+
+  .hero__copy {
+    padding-top: 46svh;
   }
 }
