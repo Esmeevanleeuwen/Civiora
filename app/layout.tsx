@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
+import { Analytics } from "@vercel/analytics/next";
+
 import "./globals.css";
 import "./hero.css";
 import "./sections.css";
@@ -11,10 +13,17 @@ export const metadata: Metadata = {
     "Een publiek sociaal media-experiment rond vragen, ideeën, filosofieën en echte dialogen.",
 };
 
-export default function RootLayout({ children }: Readonly<{ children: ReactNode }>) {
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: ReactNode;
+}>) {
   return (
     <html lang="nl">
-      <body>{children}</body>
+      <body>
+        {children}
+        <Analytics />
+      </body>
     </html>
   );
 }
