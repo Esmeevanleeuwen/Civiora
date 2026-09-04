@@ -66,15 +66,24 @@ function PrincipleMark({ icon }: { icon: PrincipleIcon }) {
     <svg aria-hidden="true" viewBox="0 0 40 40" className="principle-mark">
       {icon === "question" && (
         <>
-          <path {...common} d="M8 18.5C8 11.6 13.4 7 20.4 7S33 11.6 33 18.5 27.6 30 20.4 30c-2 0-3.8-.4-5.5-1.1L9 33l1.4-6.5A10.9 10.9 0 0 1 8 18.5Z" />
-          <path {...common} d="M17.4 15.6a3.2 3.2 0 0 1 6.2 1.1c0 2.7-3.3 2.8-3.3 5.2M20.3 25.4h.01" />
+          <path
+            {...common}
+            d="M8 18.5C8 11.6 13.4 7 20.4 7S33 11.6 33 18.5 27.6 30 20.4 30c-2 0-3.8-.4-5.5-1.1L9 33l1.4-6.5A10.9 10.9 0 0 1 8 18.5Z"
+          />
+          <path
+            {...common}
+            d="M17.4 15.6a3.2 3.2 0 0 1 6.2 1.1c0 2.7-3.3 2.8-3.3 5.2M20.3 25.4h.01"
+          />
         </>
       )}
       {icon === "people" && (
         <>
           <circle {...common} cx="15.2" cy="14.2" r="5.2" />
           <circle {...common} cx="26.5" cy="13" r="4.4" />
-          <path {...common} d="M5.8 31c.4-6.1 4-9.3 9.4-9.3s9 3.2 9.4 9.3M23.8 21.3c5.2-.4 9.4 2.6 10.3 8" />
+          <path
+            {...common}
+            d="M5.8 31c.4-6.1 4-9.3 9.4-9.3s9 3.2 9.4 9.3M23.8 21.3c5.2-.4 9.4 2.6 10.3 8"
+          />
         </>
       )}
       {icon === "layers" && (
@@ -85,13 +94,22 @@ function PrincipleMark({ icon }: { icon: PrincipleIcon }) {
       )}
       {icon === "book" && (
         <>
-          <path {...common} d="M6.5 8.5h9.2c2.5 0 4.3 1.5 4.3 4v20c0-2.5-1.8-4-4.3-4H6.5v-20Z" />
-          <path {...common} d="M33.5 8.5h-9.2c-2.5 0-4.3 1.5-4.3 4v20c0-2.5 1.8-4 4.3-4h9.2v-20Z" />
+          <path
+            {...common}
+            d="M6.5 8.5h9.2c2.5 0 4.3 1.5 4.3 4v20c0-2.5-1.8-4-4.3-4H6.5v-20Z"
+          />
+          <path
+            {...common}
+            d="M33.5 8.5h-9.2c-2.5 0-4.3 1.5-4.3 4v20c0-2.5 1.8-4 4.3-4h9.2v-20Z"
+          />
         </>
       )}
       {icon === "shield" && (
         <>
-          <path {...common} d="M20 5.5c3.3 2.2 7.2 3.4 11.5 3.7v9.2c0 7.5-4.2 13-11.5 16.1C12.7 31.4 8.5 25.9 8.5 18.4V9.2C12.8 8.9 16.7 7.7 20 5.5Z" />
+          <path
+            {...common}
+            d="M20 5.5c3.3 2.2 7.2 3.4 11.5 3.7v9.2c0 7.5-4.2 13-11.5 16.1C12.7 31.4 8.5 25.9 8.5 18.4V9.2C12.8 8.9 16.7 7.7 20 5.5Z"
+          />
           <path {...common} d="m14.5 20 3.5 3.5 7.8-8" />
         </>
       )}
@@ -126,20 +144,26 @@ export default function Home() {
           </a>
         </nav>
 
-        <div className="hero__art" role="img" aria-label="Socrates omringd door mensen in gesprek">
+        <div
+          className="hero__art"
+          role="img"
+          aria-label="Socrates omringd door mensen in gesprek"
+        >
           <div className="hero__art-image" />
         </div>
+      </header>
 
+      <section className="hero-copy-section" aria-labelledby="hero-title">
         <div className="hero__copy shell">
           <p className="eyebrow">EEN PUBLIEK SOCIAL MEDIA-EXPERIMENT</p>
-          <h1>
+          <h1 id="hero-title">
             Wat als social media niet begon met een antwoord, <em>maar met een vraag?</em>
           </h1>
           <p className="hero__intro">
             Civiora onderzoekt een nieuw sociaal kanaal waarin mensen niet worden samengebracht rond de hardste mening, maar rond maatschappelijke vragen die te groot zijn om alleen te beantwoorden.
           </p>
         </div>
-      </header>
+      </section>
 
       <section className="principles" id="uitgangspunt" aria-labelledby="principles-title">
         <h2 className="visually-hidden" id="principles-title">
