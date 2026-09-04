@@ -3,6 +3,7 @@ import type { ReactNode } from "react";
 import "./globals.css";
 import "./hero.css";
 import "./sections.css";
+import "./dialogue-tabs.css";
 
 export const metadata: Metadata = {
   title: "Civiora — Denken begint met een vraag",
