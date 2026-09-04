@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import "./globals.css";
 import "./hero.css";
+import "./sections.css";
 
 export const metadata: Metadata = {
   title: "Civiora — Denken begint met een vraag",
