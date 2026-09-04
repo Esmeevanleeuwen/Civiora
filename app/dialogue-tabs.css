@@ -1,0 +1,128 @@
+/* Interactieve tabs in de voorbeeldvraag. */
+.tabs {
+  align-items: end;
+}
+
+.tabs__tab {
+  position: relative;
+  min-width: 0;
+  padding: 0 0 13px;
+  color: #777a82;
+  font: inherit;
+  line-height: 1.2;
+  white-space: nowrap;
+  cursor: pointer;
+  appearance: none;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  transition: color 180ms ease;
+}
+
+.tabs__tab:hover {
+  color: #c5c7d0;
+}
+
+.tabs__tab:focus-visible {
+  color: #e2e4ff;
+  outline: 2px solid rgba(137, 150, 255, 0.72);
+  outline-offset: 5px;
+  border-radius: 2px;
+}
+
+.tabs__tab.tabs__active {
+  color: #d7d9ff;
+}
+
+.tabs__tab.tabs__active::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: -1px;
+  left: 0;
+  height: 2px;
+  background: var(--accent);
+}
+
+.tab-panels {
+  min-height: 208px;
+}
+
+.tab-panel {
+  animation: dialogue-tab-in 180ms ease both;
+}
+
+.tab-panel[hidden] {
+  display: none;
+}
+
+.tab-panel:focus-visible {
+  outline: 1px solid rgba(137, 150, 255, 0.42);
+  outline-offset: 6px;
+}
+
+.dialogue-mark {
+  width: 29px;
+  height: 29px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  font-size: 0.61rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.dialogue-mark--summary {
+  color: #dfe2ff;
+  border: 1px solid rgba(137, 150, 255, 0.38);
+  background: rgba(137, 150, 255, 0.1);
+}
+
+.dialogue-mark--open {
+  color: #b7bac4;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.045);
+  font-size: 0.54rem;
+  letter-spacing: 0.02em;
+}
+
+@keyframes dialogue-tab-in {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 760px) {
+  .tabs {
+    scrollbar-width: none;
+  }
+
+  .tabs::-webkit-scrollbar {
+    display: none;
+  }
+
+  .tabs__tab {
+    padding-bottom: 12px;
+  }
+
+  .tab-panels {
+    min-height: 268px;
+  }
+}
+
+@media (max-width: 430px) {
+  .tabs {
+    display: flex;
+    gap: 20px;
+  }
+
+  .tabs__tab {
+    flex: 0 0 auto;
+  }
+}
