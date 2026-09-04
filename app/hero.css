@@ -1,81 +1,226 @@
-/* Schermvullende Socrates-hero: de afbeelding vormt de volledige eerste pagina. */
+/*
+ * De Socrates-afbeelding vult de volledige eerste viewport.
+ * De introductietekst staat in de section erna en verschijnt pas na scrollen.
+ */
+
 .hero {
   position: relative;
-  min-height: 100svh;
+  width: 100%;
+  height: 100vh;
+  height: 100svh;
+  min-height: 100vh;
+  overflow: hidden;
   isolation: isolate;
+  background: #000;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.075);
 }
 
+/* De navigatie ligt boven op de afbeelding. */
+.hero .nav {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  z-index: 10;
+  width: min(calc(100% - 64px), var(--shell));
+  height: 72px;
+  margin: 0;
+  transform: translateX(-50%);
+}
+
+/* Het beeld gebruikt exact de volledige breedte en hoogte van het scherm. */
 .hero__art {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
+  min-height: 0;
   max-height: none;
   margin: 0;
+  overflow: hidden;
+  background: #000;
+  isolation: isolate;
+}
+
+/* Donkere laag voor leesbare navigatie, zonder het schilderij te verbergen. */
+.hero__art::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.58) 0%,
+      rgba(0, 0, 0, 0.12) 18%,
+      rgba(0, 0, 0, 0.03) 62%,
+      rgba(0, 0, 0, 0.38) 100%
+    ),
+    linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 0.16) 0%,
+      transparent 16%,
+      transparent 84%,
+      rgba(0, 0, 0, 0.16) 100%
+    );
+}
+
+/* Zachte overgang naar de zwarte tekstsectie. */
+.hero__art::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: -1px;
+  left: 0;
+  z-index: 3;
+  height: 16%;
+  pointer-events: none;
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    rgba(0, 0, 0, 0.14) 48%,
+    #000 100%
+  );
 }
 
 .hero__art-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background-image:
+    url("/civiora-hero.jpg"),
+    url("https://upload.wikimedia.org/wikipedia/commons/8/8c/David_-_The_Death_of_Socrates.jpg");
+  background-position: center 47%;
+  background-repeat: no-repeat;
   background-size: cover;
-  background-position: center 42%;
+  filter: grayscale(1) contrast(1.08) brightness(0.88);
+  transform: scale(1.01);
 }
 
-.hero__art::before {
+/* De introductie begint pas onder het schermvullende beeld. */
+.hero-copy-section {
+  min-height: 68svh;
+  padding: clamp(90px, 11vw, 170px) 0;
+  display: grid;
+  place-items: center;
   background:
-    linear-gradient(90deg, rgba(0, 0, 0, 0.52) 0%, transparent 16%, transparent 84%, rgba(0, 0, 0, 0.52) 100%),
-    linear-gradient(180deg, rgba(0, 0, 0, 0.18) 0%, transparent 42%, rgba(0, 0, 0, 0.1) 58%, #000 100%);
+    radial-gradient(circle at 50% 0%, rgba(89, 103, 206, 0.12), transparent 45%),
+    #000;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.075);
 }
 
-.hero__art::after {
-  height: 44%;
-  background: linear-gradient(180deg, transparent, #000 96%);
+.hero-copy-section .hero__copy {
+  position: relative;
+  z-index: 3;
+  max-width: 1040px;
+  min-height: 0;
+  margin: 0 auto;
+  padding: 0;
+  display: block;
+  text-align: center;
 }
 
-.hero__copy {
-  min-height: calc(100svh - 64px);
-  margin-top: 0;
-  padding: clamp(420px, 56svh, 650px) 0 clamp(62px, 7vw, 96px);
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
+.hero-copy-section .hero__copy h1 {
+  max-width: 980px;
+  margin: 16px auto 20px;
+  font-size: clamp(2.2rem, 4.5vw, 4.8rem);
+  font-weight: 700;
+  line-height: 1.04;
+  letter-spacing: -0.052em;
+  text-wrap: balance;
+}
+
+.hero-copy-section .hero__intro {
+  max-width: 680px;
+  margin: 0 auto;
+  color: #e2e2e5;
+  font-size: clamp(0.95rem, 1.3vw, 1.15rem);
+  line-height: 1.55;
+  letter-spacing: -0.018em;
+  text-wrap: pretty;
+}
+
+@supports (height: 100dvh) {
+  .hero {
+    height: 100dvh;
+    min-height: 100dvh;
+  }
 }
 
 @media (max-width: 760px) {
   .hero {
+    height: 100svh;
     min-height: 100svh;
   }
 
+  .hero .nav {
+    width: min(calc(100% - 32px), var(--shell));
+    height: 58px;
+  }
+
   .hero__art {
+    inset: 0;
     width: 100%;
     height: 100%;
+    min-height: 0;
     max-height: none;
-    margin-left: 0;
+    margin: 0;
   }
 
   .hero__art-image {
-    background-position: 55% center;
+    background-position: 58% center;
   }
 
-  .hero__copy {
-    min-height: calc(100svh - 56px);
-    margin-top: 0;
-    padding: 48svh 0 64px;
+  .hero-copy-section {
+    min-height: auto;
+    padding: 82px 0 92px;
+  }
+
+  .hero-copy-section .hero__copy {
+    margin: 0 auto;
+    padding: 0;
+  }
+
+  .hero-copy-section .hero__copy h1 {
+    margin-top: 14px;
+    font-size: clamp(2rem, 9vw, 3.5rem);
+    line-height: 1.06;
+  }
+
+  .hero-copy-section .hero__intro {
+    max-width: 540px;
+    font-size: 0.92rem;
   }
 }
 
 @media (max-width: 430px) {
+  .hero {
+    height: 100svh;
+    min-height: 100svh;
+  }
+
+  .hero .nav {
+    grid-template-columns: 1fr auto;
+  }
+
+  .hero .nav__center {
+    display: none;
+  }
+
   .hero__art {
     width: 100%;
     height: 100%;
     min-height: 0;
     max-height: none;
-    margin-left: 0;
+    margin: 0;
   }
 
   .hero__art-image {
-    background-position: 57% center;
+    background-position: 59% center;
   }
 
-  .hero__copy {
-    padding-top: 46svh;
+  .hero-copy-section {
+    padding: 70px 0 78px;
   }
 }
